@@ -32,7 +32,7 @@ const Home = () =>  {
   const handleGoLogin = () => navigate('/');
   const handleListLotes = ()=> navigate('/list-lotes',  {state:{token}});
   const handleCreateLotes = ()=> navigate('/create-lotes',  {state:{token}});
-  const handleUpdateLotes = () => navigate('/update-lotes');
+  const handleUpdateLotes = () => navigate('/update-lotes', {state:{token}});
   const handleListRefeicoes = ()=> navigate('/list-refeicoes',  {state:{token}});
   const handleCreateRefeicoes = ()=> navigate('/create-refeicoes',  {state:{token}});
   const handleListRacoes = ()=> navigate('/list-racoes');

@@ -56,6 +56,75 @@ export class AviarioService {
       return this.return;
     }
 
+    async updateVenda(formData){
+      var response = null;
+      await fetch(`${this.url}/AdicionarVenda`,{
+        method: 'PUT',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': 'http://localhost:3000',
+              'Authorization': `Bearer ${this.bearer}`,
+              
+            },
+            body: JSON.stringify({
+              numeroLote: formData.idLote,
+              quantidade: formData.quantidade,
+              precoVenda: formData.valorVenda,
+              dataVenda: formData.dataVenda,
+              nomeComprador: formData.nomeComprador,
+              cpfComprador: formData.cpfComprador
+            })
+        }).then((response)=>response.json())
+        .then((status) => {
+          response=status;
+      }).catch((error)=>console.log(error));
+      return response;
+    }
+
+    async updateDeath(formData){
+      var response = null;
+      await fetch(`${this.url}/AdicionarMortalidade`,{
+        method: 'PUT',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': 'http://localhost:3000',
+              'Authorization': `Bearer ${this.bearer}`,
+              
+            },
+            body: JSON.stringify({
+              idLote : formData.idLote,
+              qntdMortos : formData.qntdMortos
+            })
+        }).then((response)=>response.json())
+        .then((status) => {
+          response=status;
+      }).catch((error)=>console.log(error));
+      return response;
+    }
+
+    async updateConsumo(formData){
+      var response = null;
+      await fetch(`${this.url}/AdicionarConsumo`,{
+        method: 'PUT',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': 'http://localhost:3000',
+              'Authorization': `Bearer ${this.bearer}`,
+              
+            },
+            body: JSON.stringify({
+              idLote : formData.idLote,
+              qntdConsumo : formData.qntdConsumo
+            })
+        }).then((response)=>response.json())
+        .then((status) => {
+          response=status;
+      }).catch((error)=>console.log(error));
+      return response;
+    }
 
     async createLote(formData){
 
@@ -86,6 +155,7 @@ export class AviarioService {
           return response;
 
     }
+
 //#endregion
 
 //#region Refeições
